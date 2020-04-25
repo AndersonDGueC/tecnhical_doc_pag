@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Tecnhical Documentation Page</title>
+</head>
+
+<body>
+    <nav id="navbar">
+        <header>Verilog</header>
+        <ul>
+            <li><a class="nav-link" id="introduction" href="#">Introduction</a></li>
+            <li><a class="nav-link" id="History" href="#history">History</a></li>
+            <li><a class="nav-link" href="#verilog1d">Verilog in One Day</a></li>
+            <li><a class="nav-link" href="#variable">Variable Assignment</a></li>
+            <li><a class="nav-link" href="#always"> Always Blocks</a></li>
+
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section">
+            <header id="introduction">Introduction</header>
+            <p>Verilog is a HARDWARE DESCRIPTION LANGUAGE (HDL). A hardware description language is a language used to
+                describe a digital system: for example, a network switch, a microprocessor or a memory or a simple
+                flip-flop. This just means that, by using a HDL, one can describe any (digital) hardware at any level.
+            </p>
+            <p>
+                One can describe a simple Flip flop as that in the above figure, as well as a complicated design having
+                1 million gates. Verilog is one of the HDL languages available in the industry for hardware designing.
+                It allows us to design a Digital design at Behavior Level, Register Transfer Level (RTL), Gate level and
+                at switch level. Verilog allows hardware designers to express their designs with behavioral constructs,
+                deferring the details of implementation to a later stage in the final design.</p>
+            <p>Many engineers who want to learn this language, very often ask this question, how much time will it take
+                to learn Verilog? Well my answer to them is "It may take no more than one week, if you happen to know at
+                least one programming language"</p>
+        </section>
+        <section class="main-section" id="history">
+            <header>History</header>
+            <p>
+                Verilog was started initially as a proprietary hardware modeling language by Gateway Design Automation
+                Inc. around 1984. It is rumored that the original language was designed by taking features from the most
+                popular HDL language of the time, called HiLo, as well as from traditional computer languages such as C.
+                At that time, Verilog was not standardized and the language modified itself in almost all the revisions
+                that came out within 1984 to 1990.</p>
+            <p>
+                Verilog simulator was first used beginning in 1985 and was extended substantially through 1987. The
+                implementation was the Verilog simulator sold by Gateway. The first major extension was Verilog-XL,
+                which added a few features and implemented the infamous "XL algorithm" which was a very efficient method
+                for doing gate-level simulation.</p>
+            <p>
+                The time was late 1990. Cadence Design System, whose primary product at that time included Thin film
+                process simulator, decided to acquire Gateway Automation System. Along with other Gateway products,
+                Cadence now became the owner of the Verilog language, and continued to market Verilog as both a language
+                and a simulator. At the same time, Synopsys was marketing the top-down design methodology, using
+                Verilog. This was a powerful combination.</p>
+            <p>
+                In 1990, Cadence recognized that if Verilog remained a closed language, the pressures of standardization
+                would eventually cause the industry to shift to VHDL. Consequently, Cadence organized the Open Verilog
+                International (OVI), and in 1991 gave it the documentation for the Verilog Hardware Description
+                Language. This was the event which "opened" the language.</p>
+            <p>
+                OVI did a considerable amount of work to improve the Language Reference Manual (LRM), clarifying things
+                and making the language specification as vendor-independent as possible.
+            </p>
+            <p>Soon it was realized that if there were too many companies in the market for Verilog, potentially
+                everybody would like to do what Gateway had done so far - changing the language for their own benefit.
+                This would defeat the main purpose of releasing the language to public domain. As a result in 1994, the
+                IEEE 1364 working group was formed to turn the OVI LRM into an IEEE standard. This effort was concluded
+                with a successful ballot in 1995, and Verilog became an IEEE standard in December 1995.</p>
+            <p>
+
+                When Cadence gave OVI the LRM, several companies began working on Verilog simulators. In 1992, the first
+                of these were announced, and by 1993 there were several Verilog simulators available from companies
+                other than Cadence. The most successful of these was VCS, the Verilog Compiled Simulator, from
+                Chronologic Simulation. This was a true compiler as opposed to an interpreter, which is what Verilog-XL
+                was. As a result, compile time was substantial, but simulation execution speed was much faster.
+            </p>
+            <p>
+                When Cadence gave OVI the LRM, several companies began working on Verilog simulators. In 1992, the first
+                of these were announced, and by 1993 there were several Verilog simulators available from companies
+                other than Cadence. The most successful of these was VCS, the Verilog Compiled Simulator, from
+                Chronologic Simulation. This was a true compiler as opposed to an interpreter, which is what Verilog-XL
+                was. As a result, compile time was substantial, but simulation execution speed was much faster.</p>
+            <p>In the meantime, the popularity of Verilog and PLI was rising exponentially. Verilog as a HDL found more
+                admirers than well-formed and federally funded VHDL. It was only a matter of time before people in OVI
+                realized the need of a more universally accepted standard. Accordingly, the board of directors of OVI
+                requested IEEE to form a working committee for establishing Verilog as an IEEE standard. The working
+                committee 1364 was formed in mid 1993 and on October 14, 1993, it had its first meeting.</p>
+            <p>The standard, which combined both the Verilog language syntax and the PLI in a single volume, was passed
+                in May 1995 and now known as IEEE Std. 1364-1995.
+
+            </p>
+            <p>After many years, new features have been added to Verilog, and the new version is called Verilog 2001.
+                This version seems to have fixed a lot of problems that Verilog 1995 had. This version is called
+                1364-2001.</p>
+        </section>
+        <section class="main-section" id="verilog1d">
+            <header>Verilog in One Day</header>
+            <ul>
+                <li><strong> Block diagram of arbiter</strong>
+
+                    <p>
+                        Now, if we were designing this machine without Verilog, the standard procedure would dictate
+                        that we draw a state machine. From there, we'd make a truth table with state transitions for
+                        each flip-flop. And after that we'd draw Karnaugh maps, and from K-maps we could get the
+                        optimized circuit. This method works just fine for small designs, but with large designs this
+                        flow becomes complicated and error prone. This is where Verilog comes in and shows us another
+                        way.
+                        <br>
+                        <img src="http://www.asic-world.com/images/tidbits/aribiter_signal.gif">
+                    </p>
+                </li>
+                <li>
+                    <strong> Low level design</strong>
+                    <p>To see how Verilog helps us design our arbiter, let's go on to our state machine - now we're
+                        getting into the low-level design and peeling away the cover of the previous diagram's black box
+                        to see how our inputs affect the machine.</p>
+                    <p>
+                        Each of the circles represents a state that the machine can be in. Each state corresponds to an
+                        output. The arrows between the states are state transitions, labeled by the event that causes
+                        the transition. For instance, the leftmost orange arrow means that if the machine is in state
+                        GNT0 (outputting the signal that corresponds to GNT0) and receives an input of !req_0, the
+                        machine moves to state IDLE and outputs the signal that corresponds to that. This state machine
+                        describes all the logic of the system that you'll need. The next step is to put it all in
+                        Verilog.
+                        <img src="http://www.asic-world.com/images/tidbits/aribiter_fsm.gif">
+                    </p>
+                </li>
+                <li><strong>Modules</strong>
+                    <p>We'll need to backtrack a bit to do this. If you look at the arbiter block in the first picture,
+                        we can see that it has got a name ("arbiter") and input/output ports (req_0, req_1, gnt_0, and
+                        gnt_1).</p>
+                    <p>
+                        Since Verilog is a HDL (hardware description language - one used for the conceptual design of
+                        integrated circuits), it also needs to have these things. In Verilog, we call our "black boxes"
+                        module. This is a reserved word within the program used to refer to things with inputs, outputs,
+                        and internal logic workings; they're the rough equivalents of functions with returns in other
+                        programming languages.</p>
+                    <ul>
+                        <li>
+                            <strong>Code of module "arbiter"</strong>
+                            <p>
+                                If you look closely at the arbiter block we see that there are arrow marks, (incoming
+                                for inputs and outgoing for outputs). In Verilog, after we have declared the module name
+                                and port names, we can define the direction of each port. (version note: In Verilog 2001
+                                we can define ports and port directions at the same time) The code for this is shown
+                                below.</p>
+                            <code>module arbiter (
+      // Two slashes make a comment line.
+      <br>              
+      clock      , // clock<br>
+      reset      , // Active high, syn reset<br>
+      req_0      , // Request 0<br>
+      req_1      , // Request 1<br>
+      gnt_0      , // Grant 0<br>
+      gnt_1        // Grant 1<br>
+      );<br>
+      //-------------Input Ports-----------------------------<br>
+      // Note : all commands are semicolon-delimited<br>
+      input           clock               ;<br>
+      input           reset               ;<br>
+      input           req_0               ;<br>
+      input           req_1               ;<br>
+      //-------------Output Ports----------------------------<br>
+      output        gnt_0                 ;<br>
+      output        gnt_1                 ; <br></code>
+                            <p>Here we have only two types of ports, input and output. In real life, we can have
+                                bi-directional ports as well. Verilog allows us to define bi-directional ports as
+                                "inout."</p>
+                        </li>
+                        <li><strong>
+                                Bi-Directional Ports Example -</strong>
+                            <code>inout read_enable; // port named read_enable is bi-directional</code>
+                            <p>
+                                How do you define vector signals (signals composed of sequences of more than one bit)?
+                                Verilog provides a simple way to define these as well.</p>
+                        </li>
+                        <li>
+                            <strong>Vector Signals Example -</strong>
+                            <code>
+      inout [7:0] address; //port "address" is bidirectional</code>
+                            <p>Note the [7:0] means we're using the little-endian convention - you start with 0 at the
+                                rightmost bit to begin the vector, then move to the left. If we had done [0:7], we would
+                                be using the big-endian convention and moving from left to right. Endianness is a purely
+                                arbitrary way of deciding which way your data will "read," but does differ between
+                                systems, so using the right endianness consistently is important. As an analogy, think
+                                of some languages (English) that are written left-to-right (big-endian) versus others
+                                (Arabic) written right-to-left (little-endian). Knowing which way the language flows is
+                                crucial to being able to read it, but the direction of flow itself was arbitrarily set
+                                years back.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Datatype</strong>
+                    <p>
+                        What do data types have to do with hardware? Nothing, actually. People just wanted to write one
+                        more language that had data types in it. It's completely gratuitous; there's no point.</p>
+                    <p>
+                        But wait... hardware does have two kinds of drivers.</p>
+                    <p>
+                        (Drivers? What are those?)</p>
+                    <p>
+                        A driver is a data type which can drive a load. Basically, in a physical circuit, a driver would
+                        be anything that electrons can move through/into.</p>
+                    <ul>
+                        <li>Driver that can store a value (example: flip-flop).</li>
+                        <li>Driver that can not store value, but connects two points (example: wire).</li>
+                    </ul>
+                    <p>The first type of driver is called a reg in Verilog (short for "register"). The second data type
+                        is called a wire (for... well, "wire"). You can refer to tidbits section to understand it
+                        better.</p>
+                    <p>
+                        There are lots of other data types - for instance, registers can be signed, unsigned, floating
+                        point... as a newbie, don't worry about them right now.</p>
+                </li>
+            </ul>
+        </section>
+        <section class="main-section" id="variable">
+            <header>Variable Assignment</header>
+            <p>
+                In digital there are two types of elements, combinational and sequential. Of course we know this. But
+                the question is "How do we model this in Verilog ?". Well Verilog provides two ways to model the
+                combinational logic and only one way to model sequential logic.</p>
+            <ul>
+                <li>Combinational elements can be modeled using assign and always statements.</li>
+                <li>Sequential elements can be modeled using only always statement.</li>
+                <li>There is a third block, which is used in test benches only: it is called Initial statement.</li>
+                <ul>
+        </section>
+        <section class="main-section" id="always">
+            <header> Always Blocks</header>
+            <p>
+                As the name suggests, an always block executes always, unlike initial blocks which execute only once (at
+                the beginning of simulation). A second difference is that an always block should have a sensitive list
+                or a delay associated with it.</p>
+            <p>
+                The sensitive list is the one which tells the always block when to execute the block of code, as shown
+                in the figure below. The @ symbol after reserved word ' always', indicates that the block will be
+                triggered "at" the condition in parenthesis after symbol @.</p>
+            <p>
+                One important note about always block: it can not drive wire data type, but can drive reg and integer
+                data types.</p>
+            <code>always  @ (a or b or sel)<br>
+      begin <br>
+        y = 0; <br>
+        if (sel == 0) begin <br>
+          y = a; <br>
+        end else begin <br>
+          y = b; <br>
+        end <br>
+      end<br>
+          </code>
+            <p>
+                The above example is a 2:1 mux, with input a and b; sel is the select input and y is the mux output. In
+                any combinational logic, output changes whenever input changes. This theory when applied to always
+                blocks means that the code inside always blocks needs to be executed whenever the input variables (or
+                output controlling variables) change. These variables are the ones included in the sensitive list,
+                namely a, b and sel.</p>
+            <p>There are two types of sensitive list: level sensitive (for combinational circuits) and edge sensitive
+                (for flip-flops). The code below is the same 2:1 Mux but the output y is now a flip-flop output.</p>
+            <code>always  @ (posedge clk )<br>
+      if (reset == 0) begin <br>
+        y <= 0; <br>
+      end <br>
+      else if (sel == 0) begin <br>
+        y <= a; <br>
+      end else begin <br>
+        y <= b; <br>
+      end <br>
+              </code>
+            <p>
+                We normally have to reset flip-flops, thus every time the clock makes the transition from 0 to 1
+                (posedge), we check if reset is asserted (synchronous reset), then we go on with normal logic. If we
+                look closely we see that in the case of combinational logic we had "=" for assignment, and for the
+                sequential block we had the (<=) operator. Well, (=) is blocking assignment and (<=) is nonblocking
+                    assignment. (=) executes code sequentially inside a begin (/) end, whereas nonblocking (<=) executes
+                    in parallel. </p>
+                    <p>We can have an always block without sensitive list, in this case we need to have a delay as shown
+                        in the code below.</p>
+                    <code>always  begin <br>
+        #5 clk = ~clk; <br>
+      end<br>
+          </code>
+        </section>
+    </main>
+</body>
+
+</html>
